@@ -19,7 +19,7 @@ pub use crate::check::CheckStrategy;
 /// release_file(include_bytes!("data/file.txt"), "file.txt");
 /// ```
 pub fn release_file(data: &'static [u8], file: impl AsRef<Path>) -> Result<()> {
-    release_file_with_check(data, file, CheckStrategy::Always)
+    release_file_with_check(data, file, CheckStrategy::default())
 }
 
 /// Check if the file is the same as the embedded data, if not, write the embedded data to the file.
