@@ -32,7 +32,7 @@ pub fn release_file(data: &'static [u8], file: impl AsRef<Path>) -> Result<()> {
 /// ```
 pub fn release_file_with_check(data: &'static [u8], file: impl AsRef<Path>, check: CheckStrategy) -> Result<()> {
     let mut file = File::options().read(true).write(true).create(true).open(file)?;
-    if check.check_file(data, &file)? {
+    if check.check_file(data, &mut file)? {
         Ok(())
     } else {
         file.write_all(data)
