@@ -9,8 +9,7 @@
 
 # Description
 
-Provider better embed functions.
-This enables you to embed file and release it at runtime.
+Enables you to embed file and release it at runtime.
 
 
 # Usage
@@ -27,7 +26,7 @@ better_embedded = "~0.1"
 
 ```rust,no_run
 fn initialize() -> std::io::Result<()> {
-    better_embedded::embedded_file(include_bytes!("data/file.txt"), "file.txt");
+    better_embedded::release_file(include_bytes!("data/file.txt"), "file.txt");
     Ok(())
 }
 ```
