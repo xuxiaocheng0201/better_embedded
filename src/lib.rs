@@ -1,3 +1,4 @@
+#![doc = include_str!("../README.md")]
 #![warn(missing_docs)]
 #![forbid(unsafe_code)]
 
@@ -22,6 +23,8 @@ pub fn embedded_file(data: &'static [u8], file: impl AsRef<Path>) -> Result<()> 
 }
 
 /// Check if the file is the same as the embedded data, if not, write the embedded data to the file.
+///
+/// See [CheckStrategy] to switch a satisfied check strategy.
 ///
 /// # Usage
 /// ```rust,ignore

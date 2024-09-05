@@ -4,7 +4,7 @@ use std::io::Result;
 use bitflags::bitflags;
 
 bitflags! {
-    /// The strategy to check if the data is the same as the file.
+    /// The strategies to check if the data is the same as the file.
     pub struct CheckStrategy: u8 {
         /// Always different.
         const Always = 1 << 0;

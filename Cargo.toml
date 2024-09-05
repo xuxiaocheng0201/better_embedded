@@ -1,7 +1,24 @@
 [package]
 name = "better_embedded"
 version = "0.1.0"
+authors = ["xuxiaocheng <2762267080@qq.com>"]
 edition = "2021"
+description = "Embed files and release them at runtime"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/xuxiaocheng0201/better_embedded"
+documentation = "https://docs.rs/better_embedded/"
+categories = ["config"]
+keywords = ["embedded", "release"]
+
+include = [
+    "/Cargo.toml",
+    "/src",
+    "/README.md",
+    "/LICENSE-MIT",
+    "/LICENSE-APACHE",
+    "/CHANGELOG.md"
+]
 
 [dependencies]
 bitflags = "^2.6"
