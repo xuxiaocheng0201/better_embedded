@@ -52,6 +52,6 @@ impl CheckStrategy {
         if self.contains(CheckStrategy::Size) && data.len() as u64 != metadata.len() {
             return Ok(false);
         }
-        Ok(metadata.len() > 0) // Check the file is not empty.
+        Ok(data.len() > 0 && metadata.len() > 0) // Check the file is not empty.
     }
 }
