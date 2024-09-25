@@ -19,3 +19,15 @@ include = [
     "/LICENSE-APACHE",
     "/CHANGELOG.md"
 ]
+
+[dependencies]
+rand = { version = "~0.8", optional = true }
+
+[features]
+default = []
+
+random = ["dep:rand"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

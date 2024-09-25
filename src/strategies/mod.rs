@@ -1,6 +1,9 @@
 //! Check strategies.
 
 pub mod common;
+#[cfg(feature = "random")]
+#[cfg_attr(docsrs, doc(cfg(feature = "random")))]
+pub mod random;
 
 use std::fs::{File, Metadata};
 use std::io::Result;
