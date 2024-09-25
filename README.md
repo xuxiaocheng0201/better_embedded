@@ -26,7 +26,7 @@ better_embedded = "~0.2"
 
 ```rust,no_run
 fn initialize() -> std::io::Result<()> {
-    better_embedded::release_file(include_bytes!("data/file.txt"), "file.txt");
+    better_embedded::release_file(include_bytes!("../README.md"), "Readme.md");
     Ok(())
 }
 ```
