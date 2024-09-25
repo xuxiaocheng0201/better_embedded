@@ -4,7 +4,6 @@ version = "0.1.1"
 authors = ["xuxiaocheng <2762267080@qq.com>"]
 edition = "2021"
 description = "Embed files and release them at runtime"
-rust-version = "1.58.0"
 readme = "README.md"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/xuxiaocheng0201/better_embedded"
@@ -20,6 +19,3 @@ include = [
     "/LICENSE-APACHE",
     "/CHANGELOG.md"
 ]
-
-[dependencies]
-bitflags = "^2.6"
