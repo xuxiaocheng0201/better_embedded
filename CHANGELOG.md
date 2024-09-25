@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2024-9-26
+
+### Changed
+
+* 拆分 `CheckStrategy` 逻辑到各个子类，便于扩展
+
 ## [0.1.1] - 2024-9-5
 
 ### Added

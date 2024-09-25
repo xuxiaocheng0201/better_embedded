@@ -18,7 +18,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-better_embedded = "~0.1"
+better_embedded = "~0.2"
 ```
 
 
