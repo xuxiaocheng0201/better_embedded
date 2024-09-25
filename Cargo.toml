@@ -22,11 +22,13 @@ include = [
 
 [dependencies]
 rand = { version = "~0.8", optional = true }
+md-5 = { version = "~0.10", optional = true }
 
 [features]
-default = []
+default = ["md5"]
 
 random = ["dep:rand"]
+md5 = ["dep:md-5"]
 
 [package.metadata.docs.rs]
 all-features = true
