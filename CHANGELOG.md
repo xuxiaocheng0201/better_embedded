@@ -8,7 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.3.1] - 2024-10-7
+## [0.3.2] - 2024-10-7
+
+### Added
+
+* 添加日志，记录文件写入状态
+
+## [0.4.0] - 2024-10-7
 
 ### Fixed
 
