@@ -27,7 +27,7 @@ pub trait CheckStrategy {
 pub struct DefaultCheckStrategy;
 
 impl DefaultCheckStrategy {
-    /// The recommended strategy for configuration file. (always same and don't write)
+    /// The recommended strategy for configuration file. (not write if isn't empty)
     #[inline]
     pub fn config() -> ConfigCheckStrategy {
         ConfigCheckStrategy
@@ -47,11 +47,11 @@ impl DefaultCheckStrategy {
 }
 
 
-/// The recommended strategy for configuration file. (always same and don't write)
+/// The recommended strategy for configuration file. (not write if isn't empty)
 pub struct ConfigCheckStrategy;
 impl CheckStrategy for ConfigCheckStrategy {
-    fn compare_file(&self, data: &'static [u8], metadata: &Metadata, file: &mut File) -> Result<bool> {
-        common::AlwaysSame.compare_file(data, metadata, file)
+    fn compare_file(&self, data: &'static [u8], metadata: &Metadata, _file: &mut File) -> Result<bool> {
+        Ok(metadata.len() != 0 || data.len() == 0)
     }
 }
 
