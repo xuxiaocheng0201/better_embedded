@@ -32,6 +32,10 @@ pub fn release_file(data: &'static [u8], file: impl AsRef<Path>) -> Result<()> {
 /// release_file_with_check(include_bytes!("data/file.txt"), "file.txt", DefaultCheckStrategy::lite());
 /// ```
 pub fn release_file_with_check(data: &'static [u8], file: impl AsRef<Path>, check: impl CheckStrategy) -> Result<()> {
+    let file = file.as_ref();
+    if let Some(parent) = file.parent() {
+        std::fs::create_dir_all(parent)?;
+    }
     let mut file = File::options().read(true).write(true).create(true).open(file)?;
     let metadata = file.metadata()?;
     if check.compare_file(data, &metadata, &mut file)? {
