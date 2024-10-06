@@ -31,16 +31,20 @@ pub fn release_file(data: &'static [u8], file: impl AsRef<Path>) -> Result<()> {
 /// ```rust,ignore
 /// release_file_with_check(include_bytes!("data/file.txt"), "file.txt", DefaultCheckStrategy::lite());
 /// ```
-pub fn release_file_with_check(data: &'static [u8], file: impl AsRef<Path>, check: impl CheckStrategy) -> Result<()> {
-    let file = file.as_ref();
-    if let Some(parent) = file.parent() {
+pub fn release_file_with_check(data: &'static [u8], path: impl AsRef<Path>, check: impl CheckStrategy) -> Result<()> {
+    let path = path.as_ref();
+    if let Some(parent) = path.parent() {
         std::fs::create_dir_all(parent)?;
     }
-    let mut file = File::options().read(true).write(true).create(true).open(file)?;
+    #[cfg(feature = "log")]
+    log::debug!("Checking to release file: {}", path.display());
+    let mut file = File::options().read(true).write(true).create(true).open(path)?;
     let metadata = file.metadata()?;
     if check.compare_file(data, &metadata, &mut file)? {
         Ok(())
     } else {
+        #[cfg(feature = "log")]
+        log::info!("Releasing file: {}, data length: {}", path.display(), data.len());
         file.write_all(data)
     }
 }

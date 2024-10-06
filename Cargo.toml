@@ -21,12 +21,14 @@ include = [
 ]
 
 [dependencies]
+log = { version = "~0.4", optional = true }
 rand = { version = "~0.8", optional = true }
 md-5 = { version = "~0.10", optional = true }
 
 [features]
-default = ["md5"]
+default = ["log", "md5"]
 
+log = ["dep:log"]
 random = ["dep:rand"]
 md5 = ["dep:md-5"]
 
